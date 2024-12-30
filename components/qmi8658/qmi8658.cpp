@@ -21,11 +21,14 @@ void QMI8658Component::setup() {
     }
     ESP_LOGI(TAG, "Device ID: %x", qmi8658.getChipID());
 
+    // Configure accelerometer with three arguments (range, odr, lpf_mode)
     qmi8658.configAccelerometer(
         this->accel_range_,
         this->accel_odr_,
         this->accel_lpf_mode_
     );
+
+    // Configure gyroscope with three arguments (range, odr, lpf_mode)
     qmi8658.configGyroscope(
         this->gyro_range_,
         this->gyro_odr_,
